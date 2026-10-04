@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sensor Thumb Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Sensor Thumb</h1>
+            <p>Live Thumb Movement Monitoring System</p>
+        </header>
+
+        <!-- Connection -->
+        <section class="connection-card">
+
+            <div>
+                <span id="connectionDot" class="status-dot disconnected"></span>
+
+                <span id="connectionText">
+                    Disconnected
+                </span>
+            </div>
+
+            <button id="connectButton">
+                Connect Arduino
+            </button>
+
+        </section>
+
+
+        <!-- Main readings -->
+        <section class="dashboard-grid">
+
+            <div class="card">
+                <h3>Sensor Value</h3>
+
+                <div id="sensorValue" class="large-value">
+                    0
+                </div>
+            </div>
+
+
+            <div class="card">
+                <h3>Thumb Status</h3>
+
+                <div id="thumbStatus" class="status straight">
+                    STRAIGHT
+                </div>
+            </div>
+
+
+            <div class="card">
+                <h3>Bending</h3>
+
+                <div id="bendingValue" class="large-value">
+                    0%
+                </div>
+
+                <div class="progress-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Graph -->
+        <section class="card graph-card">
+
+            <div class="section-title">
+                <h2>Live Sensor Graph</h2>
+
+                <button id="clearGraphButton">
+                    Clear Graph
+                </button>
+            </div>
+
+            <canvas id="sensorChart"></canvas>
+
+        </section>
+
+
+        <!-- Statistics -->
+        <section class="dashboard-grid">
+
+            <div class="card">
+                <h3>Minimum</h3>
+                <div id="minValue" class="stat-value">
+                    --
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Maximum</h3>
+                <div id="maxValue" class="stat-value">
+                    --
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Average</h3>
+                <div id="averageValue" class="stat-value">
+                    --
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Calibration -->
+        <section class="card calibration-card">
+
+            <h2>Calibration</h2>
+
+            <p class="help-text">
+                Enter the sensor values measured when your thumb is
+                straight and fully bent.
+            </p>
+
+            <div class="calibration-grid">
+
+                <div>
+                    <label for="straightInput">
+                        Straight Value
+                    </label>
+
+                    <input
+                        id="straightInput"
+                        type="number"
+                        value="400"
+                    >
+                </div>
+
+
+                <div>
+                    <label for="bentInput">
+                        Fully Bent Value
+                    </label>
+
+                    <input
+                        id="bentInput"
+                        type="number"
+                        value="750"
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button id="applyCalibrationButton">
+                    Apply Calibration
+                </button>
+
+                <button id="resetCalibrationButton" class="secondary">
+                    Reset
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            Sensor Thumb Mini Project
+        </footer>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
